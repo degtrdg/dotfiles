@@ -31,6 +31,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 "Ranger
 Plug 'kevinhwang91/rnvimr'
 
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 "Plan:
 "telescope with ranger to move around

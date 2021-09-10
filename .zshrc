@@ -8,7 +8,8 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/.cache/zsh/.zsh-history
+setopt appendhistory
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -71,7 +72,16 @@ bindkey '^e' edit-command-line
 # Some aliases and paths for just wsl
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+# .zprofile not working
+source ~/.zprofile
+
+
 # Load zsh-syntax-highlighting; should be last.
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/zsh-you-should-use/you-should-use.plugin.zsh
-source /home/daniel/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.config/zsh/zsh-you-should-use/you-should-use.plugin.zsh
+source /Users/danielgeorge/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Ruby stuff
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-2.7.2
