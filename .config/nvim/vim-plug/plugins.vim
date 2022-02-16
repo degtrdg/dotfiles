@@ -11,11 +11,15 @@ Plug 'morhetz/gruvbox'
 
 
 Plug 'mattn/emmet-vim'
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'neovim/nvim-lspconfig'
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle"
+
+" Formatter (test out autosave with other languages)
+Plug 'rhysd/vim-clang-format'
+autocmd FileType c,cpp,objc,java,javascript ClangFormatAutoEnable
 
 " Use release branch (recommend) Autocomplete & definition
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "More colors

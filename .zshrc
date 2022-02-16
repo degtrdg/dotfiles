@@ -66,6 +66,11 @@ bindkey -s '^o' 'rangercd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Runtime scripts
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+        cd ~/Documents/work/
+fi
+
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
@@ -74,7 +79,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # .zprofile not working
 source ~/.zprofile
-
 
 # Load zsh-syntax-highlighting; should be last.
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -85,3 +89,28 @@ source /Users/danielgeorge/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highli
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-2.7.2
+
+# workaround until M1 problems fixed with scikit-learn (sklearn)
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# @begin(32196298)@ - Do not edit these lines - added automatically!
+# You should customize CIAOPATH before this chunk if you place bundles in
+# places other than ~/.ciao
+if [ -x /Users/danielgeorge/Documents/work/random/hackreason22/ciao/build/bin/ciao-env ] ; then
+  eval "$(/Users/danielgeorge/Documents/work/random/hackreason22/ciao/build/bin/ciao-env --sh)"
+fi
+# @end(32196298)@ - End of automatically added lines.
